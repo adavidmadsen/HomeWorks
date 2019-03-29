@@ -1,4 +1,4 @@
-name := """final-project-starter"""
+name := """HomeWorks"""
 
 version := "1.0-SNAPSHOT"
 
@@ -19,6 +19,7 @@ libraryDependencies += javaJdbc
 libraryDependencies += "org.hibernate" % "hibernate-core" % "5.3.9.Final"
 libraryDependencies += "org.mariadb.jdbc" % "mariadb-java-client" % "2.4.0"
 
+libraryDependencies += "org.webjars.bower" % "leaflet" % "1.4.0"
 // Testing libraries for dealing with CompletionStage...
 libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
 libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test

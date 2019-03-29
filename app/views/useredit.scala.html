@@ -1,0 +1,24 @@
+@(user : User)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Edit</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body class="text-center bg-secondary">
+        <div class="container">
+            <h1><strong>Editing:</strong>@user.getUserName</h1>
+            <br>
+
+            <form method="post" enctype="multipart/form-data">
+                @helper.CSRF.formField
+                <input type="text" placeholder="User Name" name="userName" value="@user.getUserName">
+                <br>
+                <br>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </body>
+</html>

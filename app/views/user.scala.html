@@ -1,0 +1,25 @@
+@(user : List[User])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Users</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body class="bg-info">
+
+        <div class="text-center container">
+
+            <h1 class="text-center display-3"><strong>Users</strong></h1>
+        <table class="table table-bordered table-striped table-dark" >
+            @for(user<-user){
+            <tr>
+                <td><a href="/userfile/@user.getUserId">@user.getUserName</a> </td>
+            </tr>
+            }
+        </table>
+        </div>
+
+    </body>
+</html>
