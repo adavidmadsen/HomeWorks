@@ -1,0 +1,45 @@
+@(eventCalendars : List[EventCalendar])
+@doctype.render
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src="/assets/lib/jquery/jquery.min.js"></script>
+        <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body class="text-center bg-info">
+
+
+        @navbar.render
+
+        <h1 class="text-center display-3"><strong>Add Event</strong></h1>
+
+        <form method="post">
+            @helper.CSRF.formField
+
+            <input type="text" placeholder="Description" name="description">
+            <br>
+            <input type="text" placeholder="Reminder" name="reminder">
+            <br>
+            <input type="text" placeholder="Special Events" name="specialEvents">
+            <br>
+            <!--<input type="text" placeholder="User Id" name="userId">-->
+            <!--<br>-->
+            <br>
+
+            <select>
+                @for(eventCalendar<-eventCalendars) {
+                <option value="user">@eventCalendar.getUserId</option>
+                }
+            </select>
+                </div>
+            </div>
+
+
+            <input type="submit" value="Save">
+        </form>
+    </body>
+
+</html>
