@@ -75,10 +75,57 @@ public class ShoppingListItemController extends Controller
 
     }
 
+    @Transactional
+    public Result getShoppingListItemDelete(int shoppingListId)
+    {
+        ShoppingListItem shoppingListItem = db.em().find(ShoppingListItem.class, shoppingListId);
+        db.em().remove(shoppingListItem);
+
+        TypedQuery<ShoppingListItem> query = db.em().createQuery("Select s FROM ShoppingListItem s", ShoppingListItem.class);
+        List<ShoppingListItem> shoppingListItems = query.getResultList();
+
+
+        return ok(views.html.shoppinglistitem.render(shoppingListItems));
+    }
+
+
+    @Transactional(readOnly = true)
+    public Result getShoppingListItemEdit(int listId)
+
+    {
+
+        TypedQuery<ShoppingListItem> query = db.em().createQuery("SELECT s FROM ShoppingListItem s Where listId = :listId",
+                ShoppingListItem.class);
+        query.setParameter("listId", listId);
+        ShoppingListItem shoppinglistitem = query.getSingleResult();
+
+        return ok(views.html.shoppinglistitemedit.render(shoppinglistitem));
+    }
+
+    @Transactional
+    public Result postShoppingListItemEdit(int listId)
+
+    {
+
+        TypedQuery<ShoppingListItem> query = db.em().createQuery("SELECT s FROM ShoppingListItem s Where listId = :listId",
+                ShoppingListItem.class);
+        query.setParameter("listId", listId);
+        ShoppingListItem shoppingListItem = query.getSingleResult();
+
+        DynamicForm form = formFactory.form().bindFromRequest();
+
+
+        String item = form.get("Item");
+
+        shoppingListItem.setItem(item);
 
 
 
+        db.em().persist(shoppingListItem);
 
+
+        return redirect("/shoppinglistitem");
+    }
 
 
 

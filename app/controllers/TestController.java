@@ -7,7 +7,7 @@ import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
-
+import services.Email;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -56,5 +56,19 @@ public class TestController extends Controller
         db.em().persist(test);
 
         return redirect("/testdb");
+    }
+
+    public Result getSendEmail()
+    {
+        String result = "no go";
+        boolean worked = Email.sendEmail("Show us what you got");
+
+        if(worked)
+        {
+            result = "sent it";
+        }
+
+
+        return ok("sent it");
     }
 }

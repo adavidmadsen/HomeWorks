@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class EventCalendar
+public class EventFile
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +15,23 @@ public class EventCalendar
     private String description;
     private int userId;
     private String reminder;
-    private  String specialEvents;
+    private String specialEvents;
     private int locationId;
     private int calendarTypeId;
     private LocalDate date;
+
+
+    public EventFile(int calendarId, String description, int userId, String reminder, String specialEvents,
+                     int locationId, int calendarTypeId, LocalDate date)
+    {
+        this.calendarId = calendarId;
+        this.description = description;
+        this.userId = userId;
+        this.reminder = reminder;
+        this.specialEvents = specialEvents;
+        this.locationId = locationId;
+        this.calendarTypeId = calendarTypeId;
+    }
 
     public LocalDate getDate()
     {
@@ -100,6 +113,3 @@ public class EventCalendar
         this.calendarTypeId = calendarTypeId;
     }
 }
-
-
-

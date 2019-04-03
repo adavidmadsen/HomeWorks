@@ -1,5 +1,6 @@
 package controllers;
 
+import models.EventCalendar;
 import models.User;
 import play.data.DynamicForm;
 import play.data.FormFactory;
@@ -104,7 +105,24 @@ public class UserController extends Controller
         query.setParameter("userId", userId);
         User user = query.getSingleResult();
 
-        return ok(views.html.userfile.render(user));
+        TypedQuery<EventCalendar>eventquery = db.em().createQuery("Select e From EventCalendar e Where userId = :userId order by date", EventCalendar.class);
+        eventquery.setParameter("userId", user.getUserId());
+        List<EventCalendar> eventCalendar = eventquery.getResultList();
+
+        return ok(views.html.userfile.render(user, eventCalendar));
+    }
+
+    @Transactional
+    public Result getUserDelete(int userId)
+    {
+        User user = db.em().find(User.class, userId);
+        db.em().remove(user);
+
+        TypedQuery<User> query = db.em().createQuery("Select u FROM User u", User.class);
+        List<User> users = query.getResultList();
+
+
+        return ok(views.html.user.render(users));
     }
 
 

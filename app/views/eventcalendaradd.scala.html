@@ -1,4 +1,4 @@
-@(eventCalendars : List[EventCalendar])
+@(users : List[User])
 @doctype.render
 
 <html lang="en">
@@ -19,23 +19,24 @@
         <form method="post">
             @helper.CSRF.formField
 
-            <input type="text" placeholder="Description" name="description">
+            <input type="date" placeholder="Date" name="Date">
             <br>
-            <input type="text" placeholder="Reminder" name="reminder">
+            <input type="text" placeholder="Description" name="Description">
             <br>
-            <input type="text" placeholder="Special Events" name="specialEvents">
+            <input type="text" placeholder="Reminder" name="Reminder">
+            <br>
+            <input type="text" placeholder="Special Events" name="SpecialEvents">
             <br>
             <!--<input type="text" placeholder="User Id" name="userId">-->
             <!--<br>-->
             <br>
 
-            <select>
-                @for(eventCalendar<-eventCalendars) {
-                <option value="user">@eventCalendar.getUserId</option>
+            <select name="UserId">
+                @for(user<-users) {
+                <option value="@user.getUserId">@user.getUserName</option>
                 }
             </select>
-                </div>
-            </div>
+
 
 
             <input type="submit" value="Save">

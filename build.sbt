@@ -12,7 +12,8 @@ libraryDependencies += guice
 
 //GUI
 libraryDependencies += "org.webjars" % "bootstrap" % "4.3.1"
-
+//API
+libraryDependencies += "com.amazonaws" % "aws-java-sdk" % "1.11.530"
 //Database
 libraryDependencies += javaJpa
 libraryDependencies += javaJdbc

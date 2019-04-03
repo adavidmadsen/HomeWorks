@@ -1,0 +1,43 @@
+@(eventCalendar : EventCalendar, users : List[User])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Edit</title>
+        <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src = "/assets/lib/jquery/jquery.min.js"></script>
+        <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    @navbar.render
+    <body class="text-center bg-secondary">
+        <div class="container">
+            <h1><strong>Editing:</strong>@eventCalendar.getDescription</h1>
+            <br>
+
+            <form method="post" enctype="multipart/form-data">
+                @helper.CSRF.formField
+                <input type="date" placeholder="date" name="Date" value="@eventCalendar.getDate">
+                <br>
+                <input type="text" placeholder="description" name="Description" value="@eventCalendar.getDescription">
+                <br>
+                <input type="text" placeholder="reminder" name="Reminder" value="@eventCalendar.getReminder">
+                <br>
+                <input type="text" placeholder="special Events" name="SpecialEvents" value="@eventCalendar.getSpecialEvents">
+                <br>
+
+                <select name="UserId">
+                    @for(user<-users) {
+                    @if(eventCalendar.getUserId==user.getUserId){
+                    <option value="@user.getUserId">@user.getUserName</option>
+                    } else{
+                    <option value="@user.getUserId">@user.getUserName</option>
+                    }
+                    }
+                </select>
+
+                <br>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </body>
+</html>

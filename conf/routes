@@ -21,6 +21,19 @@ GET     /shoppinglistitem               controllers.ShoppingListItemController.g
 GET     /shoppinglistitemadd              controllers.ShoppingListItemController.getShoppingListItemAdd
 POST    /shoppinglistitemadd              controllers.ShoppingListItemController.postShoppingListItemAdd
 GET     /eventcalendar                 controllers.EventCalendarController.getEventCalendar
+GET     /eventcalendaradd                controllers.EventCalendarController.getEventCalendarAdd
+POST    /eventcalendaradd                controllers.EventCalendarController.postEventCalendarAdd
+GET     /eventfile/:id                  controllers.EventCalendarController.getEventFile(id:Integer)
+GET     /homepage                       controllers.HomePageController.getHomePage
+GET     /eventcalendardelete/:id       controllers.EventCalendarController.getEventCalendarDelete(id:Integer)
+GET     /userdelete/:id                 controllers.UserController.getUserDelete(id:Integer)
+GET     /shoppinglistitemdelete/:id     controllers.ShoppingListItemController.getShoppingListItemDelete(id:Integer)
+GET     /sendemail                      controllers.TestController.getSendEmail
+GET     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.getShoppingListItemEdit(id:Integer)
+POST     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
+GET      /eventcalendaredit/:id          controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
+POST      /eventcalendaredit/:id          controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
+
 
 
 # Map static resources from the /public folder to the /assets URL path
