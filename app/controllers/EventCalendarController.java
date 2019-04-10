@@ -1,21 +1,25 @@
 package controllers;
 
-import models.EventCalendar;
-import models.User;
-import play.data.DynamicForm;
-import play.data.FormFactory;
-import play.db.jpa.JPAApi;
-import play.db.jpa.Transactional;
-import play.mvc.Controller;
-import play.mvc.Result;
-import views.html.user;
+        import models.EventCalendar;
+        import models.User;
+        import play.data.DynamicForm;
+        import play.data.FormFactory;
+        import play.db.jpa.JPAApi;
+        import play.db.jpa.Transactional;
+        import play.mvc.Controller;
+        import play.mvc.Result;
+        import views.html.user;
 
-import javax.inject.Inject;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.awt.*;
-import java.time.LocalDate;
-import java.util.List;
+        import javax.inject.Inject;
+        import javax.persistence.TypedQuery;
+        import java.awt.*;
+        import java.sql.Time;
+        import java.time.LocalDate;
+        import java.time.LocalTime;
+        import java.time.format.DateTimeFormatter;
+        import java.util.List;
+
+        import static java.sql.Time.valueOf;
 
 public class EventCalendarController extends Controller
 {
@@ -65,6 +69,7 @@ public class EventCalendarController extends Controller
 //        int locationId = Integer.parseInt(form.get("locationId"));
 //        int calendarTypeId = Integer.parseInt(form.get("calendarTypeId"));
         LocalDate date = LocalDate.parse(form.get("Date"));
+        LocalTime time = LocalTime.parse(form.get("Time"));
 
 //        eventCalendar.setCalendarId(calendarId);
         eventCalendar.setDescription(description);
@@ -74,6 +79,7 @@ public class EventCalendarController extends Controller
         eventCalendar.setLocationId(1);
         eventCalendar.setCalendarTypeId(1);
         eventCalendar.setDate(date);
+        eventCalendar.setTime(time);
 
 
         db.em().persist(eventCalendar);
@@ -121,7 +127,7 @@ public class EventCalendarController extends Controller
         EventCalendar eventCalendar = query.getSingleResult();
 
         TypedQuery<User> userquery = db.em().createQuery("Select u From User u", User.class);
-       List<User> user = userquery.getResultList();
+        List<User> user = userquery.getResultList();
 
 
         return ok(views.html.eventcalendaredit.render(eventCalendar, user));
@@ -146,6 +152,9 @@ public class EventCalendarController extends Controller
         LocalDate date = LocalDate.parse(form.get("Date"));
         String userId = form.get("UserId");
         int user = Integer.parseInt(userId);
+        LocalTime time = LocalTime.parse(form.get("Time"));
+
+
 
 
         eventCalendar.setDescription(description);
@@ -153,6 +162,7 @@ public class EventCalendarController extends Controller
         eventCalendar.setSpecialEvents(specialEvents);
         eventCalendar.setDate(date);
         eventCalendar.setUserId(user);
+        eventCalendar.setTime(time);
 
 
         db.em().persist(eventCalendar);
@@ -161,6 +171,32 @@ public class EventCalendarController extends Controller
         return redirect("/eventcalendar");
     }
 
+//    @Transactional
+//    public Result getDateFile(int userId)
+//    {
+//
+//        TypedQuery<EventCalendar> query = db.em().createQuery("Select e From EventCalendar e Where userId = :userId", EventCalendar.class);
+//        query.setParameter("userId", userId);
+//        List<EventCalendar> eventCalendar = query.getResultList();
+//
+//
+//        return ok(views.html.datefile.render(eventCalendar));
+//    }
+
+    @Transactional(readOnly = true)
+    public Result getDateFile(int calendarId)
+    {
+        TypedQuery<EventCalendar> query = db.em().createQuery("Select e From EventCalendar e Where calendarId = " +
+                ":calendarId", EventCalendar.class);
+        query.setParameter("calendarId", calendarId);
+        EventCalendar eventCalendar = query.getSingleResult();
+
+        TypedQuery<User> userquery = db.em().createQuery("Select u From User u Where userId = :userId", User.class);
+        userquery.setParameter("userId", eventCalendar.getUserId());
+        List<User> user = userquery.getResultList();
+
+        return ok(views.html.eventfile.render(eventCalendar, user));
+    }
 }
 
 

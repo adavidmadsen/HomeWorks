@@ -4,19 +4,27 @@
         <meta charset="UTF-8">
         <title>Add User</title>
         <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
         <script src = "/assets/lib/jquery/jquery.min.js"></script>
         <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
     @navbar.render
-    <body class="bg-info text-center">
+    <br>
+    <div class="container">
+    <body class="bg-light text-center">
 
-        <h1 class="text-center display-3"><strong>Adding User</strong></h1>
+        <h1 class="text-center font-weight-normal font-italic display-4"><strong>Adding User</strong></h1>
+        <br>
+        <br>
         <form method="post">
             @helper.CSRF.formField
-            <input type="text" placeholder="User Name"  name="userName">
-            <br>
+            <div class="form-group">
+              <label>New User</label>
+            <input type="text"  name="userName">
+            </div>
             <br>
             <input type="submit" value="Save">
         </form>
+</div>
     </body>
 </html>

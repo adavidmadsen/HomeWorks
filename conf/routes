@@ -33,7 +33,7 @@ GET     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.g
 POST     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
 GET      /eventcalendaredit/:id          controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
 POST      /eventcalendaredit/:id          controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
-
+GET       /datefile/:id                    controllers.EventCalendarController.getDateFile(id:Integer)
 
 
 # Map static resources from the /public folder to the /assets URL path

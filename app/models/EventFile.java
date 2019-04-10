@@ -19,10 +19,11 @@ public class EventFile
     private int locationId;
     private int calendarTypeId;
     private LocalDate date;
+    private String time;
 
 
     public EventFile(int calendarId, String description, int userId, String reminder, String specialEvents,
-                     int locationId, int calendarTypeId, LocalDate date)
+                     int locationId, int calendarTypeId, LocalDate date, String time)
     {
         this.calendarId = calendarId;
         this.description = description;
@@ -31,6 +32,18 @@ public class EventFile
         this.specialEvents = specialEvents;
         this.locationId = locationId;
         this.calendarTypeId = calendarTypeId;
+        this.date = date;
+        this.time = time;
+    }
+
+    public String getTime()
+    {
+        return time;
+    }
+
+    public void setTime(String time)
+    {
+        this.time = time;
     }
 
     public LocalDate getDate()

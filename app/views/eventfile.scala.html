@@ -5,26 +5,45 @@
         <meta charset="UTF-8">
         <title>Event File</title>
         <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
         <script src = "/assets/lib/jquery/jquery.min.js"></script>
         <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
     @navbar.render
-    <body class="bg-info">
-        <div class="text-center">
-            <h1><strong>@eventCalendar.getDate</strong></h1>
-            <br>
-            <h1><strong>@eventCalendar.getDescription</strong></h1>
-            <br>
-            <p1><strong>@eventCalendar.getReminder</strong></p1>
-            <br>
-            <br>
-            <p1><strong>@eventCalendar.getSpecialEvents</strong></p1>
-            <br>
-            @for(user<-users){
-            @if(eventCalendar.getUserId==user.getUserId){
-            <p1><strong>@user.getUserName</strong></p1>
-            }
-            }
+    <br>
+    <body class="bg-light">
+        <div class="container">
+        <div class="text-center ">
+            <table class="table table-striped table-bordered table-hover" >
+                <tr>
+                    <td><h1>@eventCalendar.getDescription</h1></td>
+                </tr>
+                <tr>
+                    <td>@eventCalendar.getFormattedDate</td>
+                </tr>
+                <tr>
+                    <td>@eventCalendar.getFormattedTime</td>
+                </tr>
+                <tr>
+                    <td>@eventCalendar.getReminder</td>
+                </tr>
+                <tr>
+                    <td>@eventCalendar.getSpecialEvents</td>
+                </tr>
+                <tr>
+                    <td>@for(user<-users){
+                        @if(eventCalendar.getUserId==user.getUserId){
+                        <p1><strong>@user.getUserName</strong></p1>
+                        }
+                        }
+                    </td>
+                </tr>
+
+                <button type="button" class="float-right btn-secondary btn-sm"><a href="/eventcalendaredit/@eventCalendar.getCalendarId" class="text-info">Edit</a> </button>
+
+
+            </table>
+
         </div>
     </body>
 </html>

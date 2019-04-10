@@ -5,24 +5,27 @@
         <meta charset="UTF-8">
         <title>Event Calendar</title>
         <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
         <script src = "/assets/lib/jquery/jquery.min.js"></script>
         <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
-    <body class="bg-info">
+    <body class="bg-light">
        @navbar.render
         <div class="text-center container">
-            <h1 class="text-center display-3"><strong>To Do List</strong></h1>
-            <table class="table table-bordered table-striped table-dark">
+            <h1 class="text-center font-weight-normal font-italic display-4"><strong>Planner</strong></h1>
+            <br>
+            <table class="table table-bordered table-striped table-dark table-hover">
+
 
                 @for(eventCalendar<-eventCalendar){
                 <tr>
                     <form method="post">
                         @helper.CSRF.formField
-                         <td><a href="/eventfile/@eventCalendar.getCalendarId">@eventCalendar.getDescription</a>
+                         <td><a href="/eventfile/@eventCalendar.getCalendarId" class="text-info">@eventCalendar.getDescription</a>
 
-                            <button type="button" class="float-right btn btn-outline-light btn-sm"><a href="/eventcalendardelete/@eventCalendar.getCalendarId">Delete</a> </button>
-                            <button type="button" class="float-right btn btn-outline-light btn-sm"><a href="/eventcalendaredit/@eventCalendar.getCalendarId">Edit</a> </button>
-                            <button type="button" class="float-left btn btn-outline-light btn-sm">@eventCalendar.getDate</a> </button>
+                            <button type="button" class="float-right btn btn-outline-secondary btn-sm"><a href="/eventcalendardelete/@eventCalendar.getCalendarId" class="text-muted">Delete</a> </button>
+                            <button type="button" class="float-right btn btn-outline-secondary btn-sm"><a href="/eventcalendaredit/@eventCalendar.getCalendarId" class="text-muted">Edit</a> </button>
+                            <button type="button" class="float-left btn btn-outline-secondary btn-sm"><a href="/datefile/@eventCalendar.getCalendarId" class="text-muted">@eventCalendar.getDate</a> </button>
                         </form>
                     </td>
                 </tr>

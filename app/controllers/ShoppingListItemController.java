@@ -3,6 +3,7 @@ package controllers;
 
 import models.ShoppingList;
 import models.ShoppingListItem;
+import models.ShoppingListItemDetail;
 import play.data.DynamicForm;
 import play.data.FormFactory;
 import play.db.jpa.JPAApi;
@@ -93,13 +94,17 @@ public class ShoppingListItemController extends Controller
     public Result getShoppingListItemEdit(int listId)
 
     {
+        TypedQuery<ShoppingList> query = db.em().createQuery("SELECT s FROM ShoppingList s", ShoppingList.class);
+        List<ShoppingList> shoppingList = query.getResultList();
 
-        TypedQuery<ShoppingListItem> query = db.em().createQuery("SELECT s FROM ShoppingListItem s Where listId = :listId",
+
+
+        TypedQuery<ShoppingListItem> shoppingquery = db.em().createQuery("SELECT s FROM ShoppingListItem s Where listId = :listId",
                 ShoppingListItem.class);
-        query.setParameter("listId", listId);
-        ShoppingListItem shoppinglistitem = query.getSingleResult();
+        shoppingquery.setParameter("listId", listId);
+        ShoppingListItem shoppinglistitem = shoppingquery.getSingleResult();
 
-        return ok(views.html.shoppinglistitemedit.render(shoppinglistitem));
+        return ok(views.html.shoppinglistitemedit.render(shoppinglistitem, shoppingList));
     }
 
     @Transactional
@@ -126,6 +131,7 @@ public class ShoppingListItemController extends Controller
 
         return redirect("/shoppinglistitem");
     }
+
 
 
 

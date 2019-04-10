@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.security.PublicKey;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class EventCalendar
@@ -19,7 +23,28 @@ public class EventCalendar
     private int locationId;
     private int calendarTypeId;
     private LocalDate date;
+    private LocalTime time;
 
+    public String getFormattedTime()
+    {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+        return time.format(dateTimeFormatter);
+    }
+    public LocalTime getTime()
+    {
+        return time;
+    }
+
+    public void setTime(LocalTime time)
+    {
+        this.time = time;
+    }
+
+    public String getFormattedDate()
+    {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M-dd-yyyy");
+        return date.format(dateTimeFormatter);
+    }
     public LocalDate getDate()
     {
         return date;

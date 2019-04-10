@@ -4,35 +4,42 @@
     <head>
         <meta charset="UTF-8">
         <title>User File</title>
-        <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
-        <script src = "/assets/lib/jquery/jquery.min.js"></script>
-        <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <script src="/assets/lib/jquery/jquery.min.js"></script>
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
+        <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
     @navbar.render
+    <br>
+    <body class="bg-light">
+        <div class="text-center container">
+            <h1 class="text-center font-weight-normal font-italic display-5"><strong>@user.getUserName's Planner</strong></h1>
+            <br>
 
-    <body class="bg-info">
-        <div class="text-center">
-        <h1>@user.getUserName's Daily Planner</h1>
-        </div>
-        <br>
-        <br>
-        <div class="text-center">
-            <table class="table table-bordered table-striped table-dark">
+            <div class="text-center">
+                <table class="table table-bordered table-striped table-dark">
 
-            @for(eventCalendar<-eventCalendars){
-            <tr>
-                <form method="post">
-                    @helper.CSRF.formField
-                    <td><a href="/eventfile/@eventCalendar.getCalendarId">@eventCalendar.getDescription</a>
+                    @for(eventCalendar<-eventCalendars){
+                    <tr>
+                        <form method="post">
+                            @helper.CSRF.formField
+                            <td><a href="/eventfile/@eventCalendar.getCalendarId" class="text-info">@eventCalendar.getDescription</a>
 
-                        <button type="button" class="float-right btn btn-outline-light btn-sm"><a href="/eventcalendardelete/@eventCalendar.getCalendarId">Delete</a> </button>
-                        <button type="button" class="float-right btn btn-outline-light btn-sm"><a href="/eventcalendaredit/@eventCalendar.getCalendarId">Edit</a> </button>
-                        <button type="button" class="float-left btn btn-outline-light btn-sm">@eventCalendar.getDate</a> </button>
-                </form>
-                </td>
-            </tr>
+                                <button type="button" class="float-right btn btn-outline-secondary btn-sm"><a
+                                        href="/eventcalendardelete/@eventCalendar.getCalendarId" class="text-muted">Delete</a>
+                                </button>
+                                <button type="button" class="float-right btn btn-outline-secondary btn-sm"><a
+                                        href="/eventcalendaredit/@eventCalendar.getCalendarId"
+                                        class="text-muted">Edit</a></button>
+                                <button type="button" class="float-left btn btn-outline-secondary btn-sm">
+                                    @eventCalendar.getDate</a> </button>
+                        </form>
+                        </td>
+                    </tr>
 
-        }
-        </div>
+                    }
+                </table>
+            </div>
+
     </body>
 </html>

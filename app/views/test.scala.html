@@ -3,27 +3,48 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Test</title>
+        <title>Coming Soon</title>
+        <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/ComingSoon.css">
+        <script src = "/assets/lib/jquery/jquery.min.js"></script>
+        <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
+    @navbar.render
     <body>
-        <h1>Test Page</h1>
-        <p>@testText</p>
+
         <form method="post">
             @helper.CSRF.formField
-            <input type="text" name="test" id="test">
-            <input type="submit" value="Post">
+
         </form>
-        <br>
-        <br>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
-        <hi><strong>KILL ME NOW!!!!</strong></hi>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-md">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <table>
+                        <th><h2 class="text-light font-italic">Coming Soon</h2></th>
+                        <tr>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <td class="text-light">Add Daily E-mail Reminder</td>
+                            <tr>
+                        <tr>
+                            <td class="text-light">Enable Retailer Search </td>
+                        </tr>
+                        <tr>
+                            <td class="text-light">Enable Date Search</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

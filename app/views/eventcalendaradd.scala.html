@@ -6,41 +6,53 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
         <script src="/assets/lib/jquery/jquery.min.js"></script>
         <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
-    <body class="text-center bg-info">
+    @navbar.render
+    <body class="text-center bg-light">
 
+        <div class="container">
+            <h1 class="text-center text-dark font-weight-normal font-italic display-4"><strong>Add Event</strong></h1>
+            <form method="post">
+                @helper.CSRF.formField
 
-        @navbar.render
+                <table class="table table-borderless">
 
-        <h1 class="text-center display-3"><strong>Add Event</strong></h1>
+                    <tr>
+                        <td class="text-dark font-italic">Date</td>
+                        <td><input type="date"  name="Date"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-dark font-italic">Time</td>
+                        <td><input type="time" name="Time"> </td>
+                    </tr>
+                    <tr>
+                        <td class="text-dark font-italic">Event</td>
+                        <td><input type="text" name="Description"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-dark font-italic">Location</td>
+                        <td><input type="text" name="Reminder"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-dark font-italic">Notes</td>
 
-        <form method="post">
-            @helper.CSRF.formField
-
-            <input type="date" placeholder="Date" name="Date">
-            <br>
-            <input type="text" placeholder="Description" name="Description">
-            <br>
-            <input type="text" placeholder="Reminder" name="Reminder">
-            <br>
-            <input type="text" placeholder="Special Events" name="SpecialEvents">
-            <br>
-            <!--<input type="text" placeholder="User Id" name="userId">-->
-            <!--<br>-->
-            <br>
-
-            <select name="UserId">
-                @for(user<-users) {
-                <option value="@user.getUserId">@user.getUserName</option>
-                }
-            </select>
-
-
-
-            <input type="submit" value="Save">
-        </form>
+                        <td><input type="text" name="SpecialEvents"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-dark">User</td>
+                        <td><select name="UserId">
+                            @for(user<-users) {
+                            <option value="@user.getUserId">@user.getUserName</option>
+                            }
+                        </select></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Save">
+            </form>
+        </div>
     </body>
 
 </html>

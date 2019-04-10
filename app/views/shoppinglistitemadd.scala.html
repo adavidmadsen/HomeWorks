@@ -3,28 +3,40 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add User</title>
+        <title>Add Item</title>
         <link rel = "stylesheet" href = "/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel = "stylesheet" href="/assets/stylesheets/Background.css">
         <script src = "/assets/lib/jquery/jquery.min.js"></script>
         <script src = "/assets/lib/bootstrap/js/bootstrap.min.js"></script>
     </head>
     @navbar.render
-    <body class="bg-info text-center">
+    <br>
+    <body class="bg-light text-center">
 
-        <h1 class="text-center display-3"><strong>Add Item</strong></h1>
+        <h1 class="text-center font-weight-normal font-italic display-4"><strong>Add Item</strong></h1>
+        <br>
+        <div class="container">
         <form method="post">
             @helper.CSRF.formField
-            <input type="text" placeholder="Item"  name="item">
-            <br>
-            <br>
-            <select name="shoppingListId">
-                @for(shoppingList<-shoppingLists){
-                <option value="@shoppingList.getShoppingListId">@shoppingList.getShoppingListName</option>
-                }
-            </select>
-            <br>
-            <br>
+        <table class="table table-borderless">
+            <tr>
+                <td class="text-dark font-italic">Item</td>
+                <td><input type="text"   name="item"></td>
+            </tr>
+            <tr>
+                <td class="text-dark font-italic">Select Retailer</td>
+                <td><select name="shoppingListId">
+                    @for(shoppingList<-shoppingLists){
+                    <option value="@shoppingList.getShoppingListId">@shoppingList.getShoppingListName</option>
+                    }
+                </select>
+                </td>
+            </tr>
+        </table>
+
+        <br>
             <input type="submit" value="Save">
         </form>
+        </div>
     </body>
 </html>
