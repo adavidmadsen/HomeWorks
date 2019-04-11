@@ -42,7 +42,7 @@ public class HomePageController extends Controller
 
 
 
-        TypedQuery<EventCalendar> eventquery = db.em().createQuery("Select e From EventCalendar e",
+        TypedQuery<EventCalendar> eventquery = db.em().createQuery("Select e From EventCalendar e Order by Date",
                 EventCalendar.class);
 
         List<EventCalendar> eventCalendar = eventquery.getResultList();

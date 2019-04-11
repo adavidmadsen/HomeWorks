@@ -20,7 +20,7 @@
             @for(user<-users){
             <tr>
                 <td><a href="/userfile/@user.getUserId" class="text-info">@user.getUserName</a>
-                    <!--<button type="button" class="float-right btn btn-outline-secondary btn-sm" ><a href="/userdelete/@user.getUserId" class="text-muted">Delete</a></button>-->
+                    <button type="button" class="float-right btn btn-outline-secondary btn-sm" ><a href="/userdelete/@user.getUserId" class="text-muted">Delete</a></button>
                     <button type="button" class="float-right btn btn-outline-secondary btn-sm"><a href="/useredit/@user.getUserId" class="text-muted">Edit</a> </button>
                 </td>
             </tr>
