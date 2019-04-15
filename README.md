@@ -1,20 +1,17 @@
 # HomeWorks
 
-This is a starter application to get you going on your final project.
+This is my final project for the Arkansas Coding Acaademy. its a home orginizational applpication that allows users to check their daily planner as well as add events and items to a shared shopping list. 
 
-## Running
+Technology Used
 
-Run this using [sbt](http://www.scala-sbt.org/).  
+I used the following resources to build HomeWorks:
 
-```
-sbt run
-```
+    Java
+    MySQL/MariaDB
+    Play Framework
+    HTML/CSS
+    Bootstrap 4
+    Javascript
 
-And then go to http://localhost:9000 to see the running web application.
 
-## Controllers
-
-There is a controller already in place to make sure this mostly empty project works.
-
-- TestController.java:
 
