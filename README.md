@@ -1,6 +1,6 @@
 # HomeWorks
 
-This is my final project for the Arkansas Coding Acaademy. its a home orginizational applpication that allows users to check their daily planner as well as add events and items to a shared shopping list. 
+This is my final project for the Arkansas Coding Acaademy. It's a home orginizational applpication that allows users to check their daily planner as well as add events and items to a shared shopping list. 
 
 Technology Used
 
