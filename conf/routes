@@ -3,37 +3,37 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.TestController.getTest
-POST    /                           controllers.TestController.postTest
+GET     /                               controllers.TestController.getTest
+POST    /                               controllers.TestController.postTest
 
-GET     /test                       controllers.TestController.getTest
-POST    /test                       controllers.TestController.postTest
+GET     /test                           controllers.TestController.getTest
+POST    /test                           controllers.TestController.postTest
 
-GET     /testdb                       controllers.TestController.getTestDb
-POST    /testdb                       controllers.TestController.postTestDb
-GET     /user                         controllers.UserController.getUser
-GET     /useradd                      controllers.UserController.getUserAdd
-POST    /useradd                       controllers.UserController.postUserAdd
-GET     /useredit/:id                    controllers.UserController.getUserEdit(id:Integer)
-POST    /useredit/:id                  controllers.UserController.postUserEdit(id:Integer)
-GET     /userfile/:id                    controllers.UserController.getUserFile(id:Integer)
+GET     /testdb                         controllers.TestController.getTestDb
+POST    /testdb                         controllers.TestController.postTestDb
+GET     /user                           controllers.UserController.getUser
+GET     /useradd                        controllers.UserController.getUserAdd
+POST    /useradd                        controllers.UserController.postUserAdd
+GET     /useredit/:id                   controllers.UserController.getUserEdit(id:Integer)
+POST    /useredit/:id                   controllers.UserController.postUserEdit(id:Integer)
+GET     /userfile/:id                   controllers.UserController.getUserFile(id:Integer)
 GET     /shoppinglistitem               controllers.ShoppingListItemController.getShoppingListItem
-GET     /shoppinglistitemadd              controllers.ShoppingListItemController.getShoppingListItemAdd
-POST    /shoppinglistitemadd              controllers.ShoppingListItemController.postShoppingListItemAdd
-GET     /eventcalendar                 controllers.EventCalendarController.getEventCalendar
-GET     /eventcalendaradd                controllers.EventCalendarController.getEventCalendarAdd
-POST    /eventcalendaradd                controllers.EventCalendarController.postEventCalendarAdd
+GET     /shoppinglistitemadd            controllers.ShoppingListItemController.getShoppingListItemAdd
+POST    /shoppinglistitemadd            controllers.ShoppingListItemController.postShoppingListItemAdd
+GET     /eventcalendar                  controllers.EventCalendarController.getEventCalendar
+GET     /eventcalendaradd               controllers.EventCalendarController.getEventCalendarAdd
+POST    /eventcalendaradd               controllers.EventCalendarController.postEventCalendarAdd
 GET     /eventfile/:id                  controllers.EventCalendarController.getEventFile(id:Integer)
 GET     /homepage                       controllers.HomePageController.getHomePage
-GET     /eventcalendardelete/:id       controllers.EventCalendarController.getEventCalendarDelete(id:Integer)
+GET     /eventcalendardelete/:id        controllers.EventCalendarController.getEventCalendarDelete(id:Integer)
 GET     /userdelete/:id                 controllers.UserController.getUserDelete(id:Integer)
 GET     /shoppinglistitemdelete/:id     controllers.ShoppingListItemController.getShoppingListItemDelete(id:Integer)
 GET     /sendemail                      controllers.TestController.getSendEmail
 GET     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.getShoppingListItemEdit(id:Integer)
-POST     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
-GET      /eventcalendaredit/:id          controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
-POST      /eventcalendaredit/:id          controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
-GET       /datefile/:id                    controllers.EventCalendarController.getDateFile(id:Integer)
+POST     /shoppinglistitemedit/:id      controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
+GET      /eventcalendaredit/:id         controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
+POST      /eventcalendaredit/:id        controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
+GET       /datefile/:id                 controllers.EventCalendarController.getDateFile(id:Integer)
 
 
 # Map static resources from the /public folder to the /assets URL path
