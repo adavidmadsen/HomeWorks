@@ -21,9 +21,9 @@ Home Dashboard Page
 <a href="https://imgur.com/HUCn7fv"><img src="https://i.imgur.com/HUCn7fv.png" title="source: imgur.com" /></a>
 Add Event To PLanner
 <a href="https://imgur.com/sZgX42c"><img src="https://i.imgur.com/sZgX42c.png" title="source: imgur.com" /></a>
-
+Family PLanner
 <a href="https://imgur.com/zKe1y3E"><img src="https://i.imgur.com/zKe1y3E.png" title="source: imgur.com" /></a>
-
+User Planer
 <a href="https://imgur.com/M9iOgXK"><img src="https://i.imgur.com/M9iOgXK.png" title="source: imgur.com" /></a>
 
 <a href="https://imgur.com/yp804wv"><img src="https://i.imgur.com/yp804wv.png" title="source: imgur.com" /></a>
