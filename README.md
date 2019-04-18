@@ -25,7 +25,7 @@ Family PLanner
 <a href="https://imgur.com/zKe1y3E"><img src="https://i.imgur.com/zKe1y3E.png" title="source: imgur.com" /></a>
 User Planer
 <a href="https://imgur.com/M9iOgXK"><img src="https://i.imgur.com/M9iOgXK.png" title="source: imgur.com" /></a>
-
+Event Detail
 <a href="https://imgur.com/yp804wv"><img src="https://i.imgur.com/yp804wv.png" title="source: imgur.com" /></a>
-
+Coming Soon
 <a href="https://imgur.com/qOo8H7j"><img src="https://i.imgur.com/qOo8H7j.png" title="source: imgur.com" /></a>
