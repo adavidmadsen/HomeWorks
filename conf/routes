@@ -30,10 +30,10 @@ GET     /userdelete/:id                 controllers.UserController.getUserDelete
 GET     /shoppinglistitemdelete/:id     controllers.ShoppingListItemController.getShoppingListItemDelete(id:Integer)
 GET     /sendemail                      controllers.TestController.getSendEmail
 GET     /shoppinglistitemedit/:id       controllers.ShoppingListItemController.getShoppingListItemEdit(id:Integer)
-POST     /shoppinglistitemedit/:id      controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
-GET      /eventcalendaredit/:id         controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
-POST      /eventcalendaredit/:id        controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
-GET       /datefile/:id                 controllers.EventCalendarController.getDateFile(id:Integer)
+POST    /shoppinglistitemedit/:id       controllers.ShoppingListItemController.postShoppingListItemEdit(id:Integer)
+GET     /eventcalendaredit/:id          controllers.EventCalendarController.getEventCalendarEdit(id:Integer)
+POST    /eventcalendaredit/:id          controllers.EventCalendarController.postEventCalendarEdit(id:Integer)
+GET     /datefile/:id                   controllers.EventCalendarController.getDateFile(id:Integer)
 
 
 # Map static resources from the /public folder to the /assets URL path
